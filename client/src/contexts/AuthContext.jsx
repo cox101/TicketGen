@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { auth } from "../firebase";
-
+import { getAuth } from "firebase/auth";
+import app from "../firebase";
 // Create a context for authentication data
 const AuthContext = React.createContext();
+
+const auth = getAuth(app);
 
 // Custom hook for accessing the AuthContext
 export function useAuth() {
