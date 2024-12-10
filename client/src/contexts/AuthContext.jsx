@@ -1,5 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"; // Import the necessary methods
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth"; // Import the necessary methods
 import app from "../firebase";
 
 // Create a context for authentication data
@@ -22,6 +26,10 @@ export function AuthProvider({ children }) {
     return createUserWithEmailAndPassword(auth, email, password); // Firebase authentication method for creating a user
   }
 
+  function login(email, password) {
+    return signInWithEmailAndPassword(auth, email, password);
+  }
+
   // Set up a listener for authentication state changes
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -33,7 +41,7 @@ export function AuthProvider({ children }) {
   }, []); // Empty dependency array ensures this effect runs only once when the component mounts
 
   // The value object contains the current user and authentication methods to be provided
-  const value = { currentUser, signup };
+  const value = { currentUser, login, signup };
 
   // Wrap children components with the AuthContext provider and pass the value object
   return (
