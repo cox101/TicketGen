@@ -3,6 +3,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth"; // Import the necessary methods
 import app from "../firebase";
 
@@ -30,6 +32,10 @@ export function AuthProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
+  function logout() {
+    return auth.signOut();
+  }
+
   // Set up a listener for authentication state changes
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -41,7 +47,7 @@ export function AuthProvider({ children }) {
   }, []); // Empty dependency array ensures this effect runs only once when the component mounts
 
   // The value object contains the current user and authentication methods to be provided
-  const value = { currentUser, login, signup };
+  const value = { currentUser, login, signup, logout };
 
   // Wrap children components with the AuthContext provider and pass the value object
   return (
