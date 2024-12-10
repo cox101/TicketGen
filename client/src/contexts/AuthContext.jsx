@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { getAuth } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"; // Import the necessary methods
 import app from "../firebase";
+
 // Create a context for authentication data
 const AuthContext = React.createContext();
 
@@ -13,17 +14,19 @@ export function useAuth() {
 
 // Authentication provider component
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(); // State to store the currently logged-in user
+  const [loading, setLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState(null); // State to store the currently logged-in user
 
   // Function to handle user signup using email and password
   function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password); // Firebase authentication method
+    return createUserWithEmailAndPassword(auth, email, password); // Firebase authentication method for creating a user
   }
 
   // Set up a listener for authentication state changes
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user); // Update the currentUser state whenever the authentication state changes
+      setLoading(false);
     });
 
     return unsubscribe; // Cleanup function to remove the listener when the component unmounts
@@ -33,5 +36,9 @@ export function AuthProvider({ children }) {
   const value = { currentUser, signup };
 
   // Wrap children components with the AuthContext provider and pass the value object
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  );
 }
