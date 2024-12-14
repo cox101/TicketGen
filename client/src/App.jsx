@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         >
           <div className="w-100" style={{ maxWidth: "400px" }}>
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/" element={<HomePage />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
             </Routes>

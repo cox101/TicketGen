@@ -1,7 +1,7 @@
 import React from "react";
-import { Sidebar } from "./components/layout/Sidebar";
-import { Header } from "./components/layout/Header";
-import { TicketList } from "./components/tickets/TicketList";
+import { Sidebar } from "../components/layout/SideBar";
+import { Header } from "../components/layout/Header";
+import { TicketList } from "../components/tickets/TicketList";
 
 // Mock data moved to a separate file in a real application
 const mockTickets = [
@@ -51,7 +51,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Sidebar />
-      <div className="ml-64">
+      <div className="w-max">
         <Header />
         <main className="pt-24 px-6 pb-8">
           <div className="mb-6 flex justify-between items-center">
