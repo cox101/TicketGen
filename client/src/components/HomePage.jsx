@@ -49,18 +49,22 @@ export default function HomePage() {
     console.log("Ticket clicked:", ticket);
   };
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex">
       <Sidebar />
-      <div className="w-max">
+      <div className="flex-1 flex flex-col">
         <Header />
-        <main className="pt-24 px-6 pb-8">
+        <main className="flex-1 pt-24 pb-8 px-6">
           <div className="mb-6 flex justify-between items-center">
             <h1 className="text-2xl font-bold text-gray-900">Tickets</h1>
             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
               Create Ticket
             </button>
+
+            <TicketList
+              tickets={mockTickets}
+              onTicketClick={handleTicketClick}
+            />
           </div>
-          <TicketList tickets={mockTickets} onTicketClick={handleTicketClick} />
         </main>
       </div>
     </div>

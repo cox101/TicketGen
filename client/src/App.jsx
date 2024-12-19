@@ -10,18 +10,14 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <Container
-          className="d-flex align-items-center justify-content-center"
-          style={{ minHeight: "100vh" }}
-        >
-          <div className="w-100" style={{ maxWidth: "400px" }}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </div>
-        </Container>
+        <div>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/update-profile" element={<Dashboard />} />
+          </Routes>
+        </div>
       </AuthProvider>
     </>
   );
