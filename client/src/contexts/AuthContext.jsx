@@ -52,6 +52,47 @@ export function AuthProvider({ children }) {
       return { success: false, message: "An unexpected error occurred." };
     }
   }
+
+  function updateEmail(email) {
+    if (!auth.currentUser) {
+      return Promise.reject(new Error("No user is currently logged in."));
+    }
+  
+    return auth.currentUser
+      .updateEmail(email)
+      .then(() => ({
+        success: true,
+        message: "Email updated successfully.",
+      }))
+      .catch((error) => {
+        console.error("Error updating email:", error);
+        return {
+          success: false,
+          message: error.message || "Failed to update email.",
+        };
+      });
+  }
+  
+  function updatePassword(password) {
+    if (!auth.currentUser) {
+      return Promise.reject(new Error("No user is currently logged in."));
+    }
+  
+    return auth.currentUser
+      .updatePassword(password)
+      .then(() => ({
+        success: true,
+        message: "Password updated successfully.",
+      }))
+      .catch((error) => {
+        console.error("Error updating password:", error);
+        return {
+          success: false,
+          message: error.message || "Failed to update password.",
+        };
+      });
+  }
+  
   
   // Set up a listener for authentication state changes
   useEffect(() => {
@@ -64,7 +105,7 @@ export function AuthProvider({ children }) {
   }, []); // Empty dependency array ensures this effect runs only once when the component mounts
 
   // The value object contains the current user and authentication methods to be provided
-  const value = { currentUser, login, signup, logout, resetPassword };
+  const value = { currentUser, login, signup, logout, resetPassword, updateEmail, updatePassword  };
 
   // Wrap children components with the AuthContext provider and pass the value object
   return (
