@@ -25,16 +25,7 @@
       "node": ">=14.0.0"
     },
     "keywords": ["ticketing", "system", "backend"],
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    "author": "Cox101",
+
+ "author": "Cox101",
     "license": ""
-=======
-    "author": "cox101",
-    "license": "MIT"
->>>>>>> Stashed changes
-=======
-    "author": "cox101",
-    "license": "MIT"
->>>>>>> Stashed changes
   }
