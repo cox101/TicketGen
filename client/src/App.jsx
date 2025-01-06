@@ -39,10 +39,13 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/tickets" element={<div>Tickets Page</div>} />
+        <Route path="/teams" element={<div>Teams Page</div>} />
+        <Route path="/locations" element={<div>Locations Page</div>} />
+        <Route path="/settings" element={<div>Settings Page</div>} />
       </Routes>
     </AuthProvider>
   );
 }
 
 export default App;
-
