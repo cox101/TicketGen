@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import PrivateRoute from "./components/PrivateRoute";
 import ForgotPassword from "./components/ForgotPassword";
 import UpdateProfile from "./components/UpdateProfile";
+import TicketsPage from "./pages/TicketsPage";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/tickets" element={<div>Tickets Page</div>} />
+        <Route path="/tickets" element={<TicketsPage />} />
         <Route path="/teams" element={<div>Teams Page</div>} />
         <Route path="/locations" element={<div>Locations Page</div>} />
         <Route path="/settings" element={<div>Settings Page</div>} />
