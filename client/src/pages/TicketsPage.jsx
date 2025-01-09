@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Clock, Plus, Search, AlertCircle } from 'lucide-react';
+import {Link} from "react-router-dom"
 
 const TICKET_STATUSES = {
   NEW: 'New',
@@ -122,7 +123,7 @@ const TicketCard = ({ ticket, onStatusChange }) => {
   );
 };
 
-export function TicketsPage() {
+export default function TicketsPage() {
   const [tickets, setTickets] = useState(mockTickets);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('All');
@@ -151,10 +152,15 @@ export function TicketsPage() {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-bold text-gray-900">Tickets</h1>
-          <button className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          
+          
+            <Link to="/create-ticket">
+            <button className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
             <Plus className="w-5 h-5 mr-2" />
             New Ticket
-          </button>
+            </button>
+            </Link>
+          
         </div>
 
         <div className="bg-white p-4 rounded-lg shadow-sm mb-6">

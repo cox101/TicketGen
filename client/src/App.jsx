@@ -8,6 +8,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import ForgotPassword from "./components/ForgotPassword";
 import UpdateProfile from "./components/UpdateProfile";
 import TicketsPage from "./pages/TicketsPage";
+import { CreateTicket } from './components/tickets/CreateTicket';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="create-ticket" element={<CreateTicket />} />
         <Route
           path="/profile"
           element={
