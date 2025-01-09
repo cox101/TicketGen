@@ -9,6 +9,8 @@ import ForgotPassword from "./components/ForgotPassword";
 import UpdateProfile from "./components/UpdateProfile";
 import TicketsPage from "./pages/TicketsPage";
 import { CreateTicket } from './components/tickets/CreateTicket';
+import { TeamsPage } from "./pages/TeamPage";
+import { LocationsPage } from "./pages/LocationPage";
 
 function App() {
   return (
@@ -43,8 +45,8 @@ function App() {
           }
         />
         <Route path="/tickets" element={<TicketsPage />} />
-        <Route path="/teams" element={<div>Teams Page</div>} />
-        <Route path="/locations" element={<div>Locations Page</div>} />
+        <Route path="/teams" element={<TeamsPage />} />
+        <Route path="/locations" element={<LocationsPage />} />
         <Route path="/settings" element={<div>Settings Page</div>} />
       </Routes>
     </AuthProvider>
