@@ -11,6 +11,7 @@ import TicketsPage from "./pages/TicketsPage";
 import { CreateTicket } from './components/tickets/CreateTicket';
 import { TeamsPage } from "./pages/TeamPage";
 import { LocationsPage } from "./pages/LocationPage";
+import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   return (
@@ -47,7 +48,7 @@ function App() {
         <Route path="/tickets" element={<TicketsPage />} />
         <Route path="/teams" element={<TeamsPage />} />
         <Route path="/locations" element={<LocationsPage />} />
-        <Route path="/settings" element={<div>Settings Page</div>} />
+        <Route path="/settings" element={<SettingsPage />} />
       </Routes>
     </AuthProvider>
   );
