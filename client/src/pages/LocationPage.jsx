@@ -66,7 +66,7 @@ const LocationCard = ({ location }) => {
   );
 };
 
-export function LocationsPage() {
+export default function LocationsPage() {
   const [locations] = useState(mockLocations);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('All');

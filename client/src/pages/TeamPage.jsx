@@ -94,7 +94,7 @@ const TeamCard = ({ team }) => {
   );
 };
 
-export function TeamsPage() {
+export default function TeamsPage() {
   const [teams, setTeams] = useState(MOCK_TEAMS);
   const [searchQuery, setSearchQuery] = useState('');
 
