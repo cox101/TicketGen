@@ -13,12 +13,14 @@ import LocationsPage from "./pages/LocationPage";
 import SettingsPage from "./pages/SettingsPage";
 import TicketsPage from "./pages/TicketsPage";
 import { Sidebar } from "./components/layout/SideBar";
+import { Header } from "./components/layout/Header";
 
 function App() {
   return (
     <AuthProvider>
       <nav>
         <Sidebar />
+        <Header />
       </nav>
       <main>
         <Outlet />
